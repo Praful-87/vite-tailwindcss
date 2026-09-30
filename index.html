@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind + Vite App</title>
+  <!-- Link directly to your source CSS file -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body">
+  <nav class="bg-(--dark) h-16.5 lg:h-[81px] flex justify-between items-center px-5 md:px-6 lg:px-8">
+    <div class="flex items-center gap-2 h-full ">
+      <div>
+        <img src="./images/logo.svg" alt="">
+      </div>
+      <span class="text-white font-bold text-[20px]">CreativeOps</span>
+    </div>
+    <ul class="lg:flex hidden text-white h-full text-[14px] gap-8 items-center">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="lg:flex h-10 gap-6 text-[14px] hidden">
+      <button class="text-white font-semibold">Login</button>
+      <button class="rounded-full bg-[#13d9d0] px-5 font-semibold text-[#06131D]">Get Started</button>
+    </div>
+
+    <button class="lg:hidden"><img src="./images/menu.svg" alt=""></button>
+
+
+  </nav>
+  <main class="container pt-8 flex flex-col gap-3 bg-(--dark) px-5">
+    <div class="text-(--teal) text-[11px] font-bold">
+      <span>PLAN • CREATE • COLLABORATE</span>
+    </div>
+    <h1 class="text-white text-[30px] leading-[37.5px] font-extrabold">Your creative work, <span
+        class="text-(--teal)">better organized.</span></h1>
+    <p class="text-[#D1D5DB]  text-[14px] leading-[22.8px]">CreativeOps helps creative teams manage
+      projects, share assets, and track progress — all in
+      one place.</p>
+    <div class="flex flex-col py-[13px] gap-3">
+      <button class="bg-(--teal) text-[14px] leading-[20px] font-bold text-(--dark) py-[14px] rounded-[8px]">Get Started
+        Free</button>
+      <button
+        class="text-white rounded-lg border border-[#4B5563] text-[14px] leading-[20px] font-bold py-[14px] flex items-center justify-center gap-2"><span><img
+            src="./images/triangle.svg" alt=""></span>Watch
+        Demo</button>
+    </div>
+    <div class="flex flex-col gap-2 text-[#D1D5DB]">
+      <p class="flex flex-row items-center gap-[10px]">
+        <span><img src="./images/check.svg" alt=""></span>
+        <span class="text-[#D1D5DB] text-[12px] leading-[16px]">No credit card required</span>
+      </p>
+      <p class="flex flex-row items-center gap-[10px]">
+        <span><img src="./images/check.svg" alt=""></span>
+        <span class="text-[#D1D5DB] text-[12px] leading-[16px]">Setup in minutes</span>
+      </p>
+      <p class="flex flex-row items-center gap-[10px]">
+        <span><img src="./images/check.svg" alt=""></span>
+        <span class="text-[#D1D5DB] text-[12px] leading-[16px]">Works on all devices</span>
+      </p>
+    </div>
+    <div><img class="w-full" src="./images/data.png" alt=""></div>
+  </main>
+  <section class="py-12 bg-[#F7FBFA] px-5">
+    <div>
+      <h2 class="text-[#0E9690] font-bold text-[12px] leading-[16px]">WHY CREATIVEOPS</h2>
+      <h1 class="font-extrabold text-[24px] leading-8 text-[#0C1C28] mt-1">Everything you need, in one
+        place</h1>
+    </div>
+    <div class="flex flex-col gap-[14px] mt-[28px]">
+      <div class="p-4 flex gap-4 border border-[#E2ECE9] rounded-xl bg-white">
+        <div class="h-[40px] w-[40px] rounded-lg bg-[#E7FAF8] flex justify-center items-center"><img
+            src="./images/folder.svg" alt=""></div>
+        <div>
+          <h2 class="text-[#0C1C28] font-bold text-[14px] leading-[20px]">Project Management</h2>
+          <p class="mt-1 text-[12px] leading-[19.5px] text-[#6B7280] text-regular">Organize tasks, set deadlines and
+            keep
+            your team aligned.</p>
+        </div>
+      </div>
+      <div class="p-4 flex gap-4 border border-[#E2ECE9] rounded-xl bg-white">
+        <div class="h-[40px] w-[40px] rounded-lg bg-[#E7FAF8] flex justify-center items-center"><img
+            src="./images/gallery.svg" alt=""></div>
+        <div>
+          <h2 class="text-[#0C1C28] font-bold text-[14px] leading-[20px]">Asset Library</h2>
+          <p class="mt-1 text-[12px] leading-[19.5px] text-[#6B7280] text-regular">Store and access your creative assets
+            anytime, anywhere.</p>
+        </div>
+      </div>
+      <div class="p-4 flex gap-4 border border-[#E2ECE9] rounded-xl bg-white">
+        <div class="h-[40px] w-[40px] rounded-lg bg-[#E7FAF8] flex justify-center items-center"><img
+            src="./images/team.svg" alt=""></div>
+        <div>
+          <h2 class="text-[#0C1C28] font-bold text-[14px] leading-[20px]">Team Collaboration</h2>
+          <p class="mt-1 text-[12px] leading-[19.5px] text-[#6B7280] text-regular">Work together with real-time updates
+            and
+            comments.</p>
+        </div>
+      </div>
+      <div class="p-4 flex gap-4 border border-[#E2ECE9] rounded-xl bg-white">
+        <div class="h-[40px] w-[40px] rounded-lg bg-[#E7FAF8] flex justify-center items-center"><img
+            src="./images/progress.svg" alt=""></div>
+        <div>
+          <h2 class="text-[#0C1C28] font-bold text-[14px] leading-[20px]">Progress Tracking</h2>
+          <p class="mt-1 text-[12px] leading-[19.5px] text-[#6B7280] text-regular">Get clear insights and track what's
+            getting
+            done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-5 py-10 bg-white">
+    <div>
+      <h2 class="text-[#0E9690] font-bold text-[12px] leading-[16px]">HOW IT WORKS</h2>
+      <h1 class="font-extrabold text-[24px] leading-8 text-[#0C1C28] mt-1">Get started in 3 simple steps</h1>
+    </div>
+    <div class="flex flex-col gap-5">
+      <div class="mt-6 flex gap-[14px]">
+        <div class="flex gap-[14px]">
+          <div class="font-extrabold text-[14px] size-8 rounded-full bg-(--teal) flex items-center justify-center">1
+          </div>
+        </div>
+        <div>
+          <h2 class="text-[14px] text-[#0C1C28] font-bold leading-[20px]">Create Workspace</h2>
+          <p class="text-[#6B7280] text-regular text-[12px] leading-[19.5px]">Set up your team and project in minutes.
+          </p>
+        </div>
+      </div>
+      <div class="mt-6 flex gap-[14px]">
+        <div class="flex gap-[14px]">
+          <div class="font-extrabold text-[14px] size-8 rounded-full bg-(--teal) flex items-center justify-center">2
+          </div>
+        </div>
+        <div>
+          <h2 class="text-[14px] text-[#0C1C28] font-bold leading-[20px]">Add Assets</h2>
+          <p class="text-[#6B7280] text-regular text-[12px] leading-[19.5px]">Upload files, create tasks and assign team
+            members.
+          </p>
+        </div>
+      </div>
+      <div class="mt-6 flex gap-[14px]">
+        <div class="flex gap-[14px]">
+          <div class="font-extrabold text-[14px] size-8 rounded-full bg-(--teal) flex items-center justify-center">3
+          </div>
+        </div>
+        <div>
+          <h2 class="text-[14px] text-[#0C1C28] font-bold leading-[20px]">Track & Deliver</h2>
+          <p class="text-[#6B7280] text-regular text-[12px] leading-[19.5px]">Monitor progress and ship amazing work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </body>
+
+</html>

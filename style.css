@@ -1,0 +1,14 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+:root {
+  --dark: #06131D;
+  --light-dark: #102633;
+  --white-text: #CBD5E1;
+  --teal: #12D9D0;
+  --inside-stroke:#142A3D;
+}
+
+@import "tailwindcss"

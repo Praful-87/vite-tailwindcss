@@ -13,8 +13,9 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body">
-  <nav class="bg-(--dark) h-16.5 lg:h-[81px] flex justify-between items-center px-5 md:px-6 lg:px-8">
+
+<body class="relative">
+  <nav class="bg-(--dark) h-16.5 lg:h-25.5 flex justify-between items-center px-5 md:px-6 lg:px-8 sticky top-0 z-50">
     <div class="flex items-center gap-2 h-full ">
       <div>
         <img src="./images/logo.svg" alt="">
@@ -28,60 +29,169 @@
       <li><a href="#">About</a></li>
     </ul>
     <div class="lg:flex h-10 gap-6 text-[14px] hidden">
-      <button class="text-white font-semibold">Login</button>
+      <button class="text-white font-semibold border border-[#334155] px-5 rounded-full">Login</button>
       <button class="rounded-full bg-[#13d9d0] px-5 font-semibold text-[#06131D]">Get Started</button>
     </div>
 
-    <button class="lg:hidden"><img src="./images/menu.svg" alt=""></button>
+    <button id="menu" class="lg:hidden"><img src="./images/menu.svg" alt=""></button>
+
+    <div id="sidebar" class="fixed z-50 w-full top-0 -right-full flex h-screen transition-all duration-300 ease-in-out">
+
+      <div class="w-full flex flex-col h-full">
+        <!-- Header (Locked Height) -->
+        <div class="bg-[#06131D] py-4 px-5 flex justify-between items-center h-16 shrink-0">
+          <div class="flex items-center gap-2 h-full">
+            <img src="./images/logo.svg" alt="Logo">
+            <span class="text-white font-bold text-[20px]">CreativeOps</span>
+          </div>
+          <!-- Fixed the cursor pointer & id selector context -->
+          <div id="close" class="cursor-pointer p-1">
+            <img class="h-7" src="./images/close.svg" alt="Close">
+          </div>
+        </div>
+
+        <!-- Body Container (Scrollable internally if sidebar items overflow) -->
+        <div class="bg-[#143147] flex-1 overflow-y-auto pt-5 pb-32 relative">
+
+          <!-- Version Tab -->
+          <div class="mx-5 border bg-[#06131D] border-[#142A3D] h-11 flex items-center rounded-lg px-5 justify-between">
+            <div class="h-fit flex items-center gap-2">
+              <span class="w-3 h-3 bg-[#13d9d0] rounded-full"></span>
+              <span class="font-medium text-sm leading-4 text-[#D1D5DB]">CreativeOps Cloud</span>
+            </div>
+            <!-- Fixed py-.5 to py-0.5 -->
+            <div class="bg-[#12D9D0] font-bold text-black px-1.5 py-0.5 text-xs rounded-sm">v2.4 Active</div>
+          </div>
+
+          <!-- Navigation Links -->
+          <section class="flex flex-col gap-1 py-4 px-5">
+            <ul class="w-full">
+              <!-- Home (Active) -->
+              <li class="w-full">
+                <!-- Fixed w-ful to w-full -->
+                <div
+                  class="bg-[#12D9D01A] h-11 w-full flex justify-between items-center px-3 py-2.5 rounded-md border-l-2 border-[#12D9D0]">
+                  <div class="flex items-center">
+                    <img class="inline" src="./images/home.svg" alt="">
+                    <span class="font-semibold text-base leading-5 text-[#12D9D0] ml-2">Home</span>
+                  </div>
+                  <button
+                    class="bg-[#12D9D0] font-bold text-[#06131D] px-1.5 py-0.5 text-xs rounded-sm">Current</button>
+                </div>
+              </li>
+              <!-- Features -->
+              <li class="w-full mt-1">
+                <div class="h-11 w-full flex justify-between items-center px-3 py-2.5 rounded-md">
+                  <div class="flex items-center">
+                    <img class="inline" src="./images/Features.svg" alt="">
+                    <span class="font-semibold text-base leading-5 text-[#D1D5DB] ml-3">Features</span>
+                  </div>
+                </div>
+              </li>
+              <!-- Pricing -->
+              <li class="w-full mt-1">
+                <div class="h-11 w-full flex justify-between items-center px-3 py-2.5 rounded-md">
+                  <div class="flex items-center">
+                    <img class="inline" src="./images/Pricing.svg" alt="">
+                    <span class="font-semibold text-base leading-5 text-[#D1D5DB] ml-3">Pricing</span>
+                  </div>
+                </div>
+              </li>
+              <!-- About -->
+              <li class="w-full mt-1">
+                <div class="h-11 w-full flex justify-between items-center px-3 py-2.5 rounded-md">
+                  <div class="flex items-center">
+                    <img class="inline" src="./images/About.svg" alt="">
+                    <span class="font-semibold text-base leading-5 text-[#D1D5DB] ml-3">About</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Resources Section -->
+          <section class="px-6 py-2">
+            <p class="text-xs font-bold text-[#9CA3AF] px-3">RESOURCES</p>
+            <p class="text-xs text-[#9CA3AF] px-3 mt-3.5"><img class="inline mr-2" src="./images/RESOURCES.svg" alt="">
+              Documentation</p>
+            <p class="text-xs text-[#9CA3AF] px-3 mt-3.5"><img class="inline mr-2" src="./images/Contact.svg" alt="">
+              Contact Sales</p>
+          </section>
+
+          <!-- Bottom Action Buttons (Safely Boxed inside padding wrapper) -->
+          <div class="absolute bottom-20 left-0 right-0 px-6 flex flex-col gap-3">
+            <button class="bg-[#12D9D0] text-[14px] leading-5 font-bold text-[#06131D] py-2 rounded-lg w-full">
+              Get Started Free
+            </button>
+            <button
+              class="text-white rounded-lg border border-[#4B5563] text-[14px] leading-5 font-bold py-2 flex items-center justify-center gap-2 w-full">
+              <img src="./images/triangle.svg" alt=""> Watch Demo
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 
 
   </nav>
-  <main class="container pt-8 flex flex-col gap-3 bg-(--dark) px-5">
-    <div class="text-(--teal) text-[12px] font-bold">
-      <span>PLAN • CREATE • COLLABORATE</span>
+  <main class="container py-8 flex flex-col gap-4 bg-(--dark) px-5 md:flex-row items-center ">
+    <div class="flex-1 flex gap-3 flex-col  ">
+      <div class="text-(--teal) text-[12px] font-bold">
+        <span>PLAN • CREATE • COLLABORATE</span>
+      </div>
+      <h1 class="text-white text-[32px] md:text-[36px] leading-[37.5px] md:leading-10 font-extrabold">Your creative
+        work,
+        <span class="text-(--teal)">better organized.</span>
+      </h1>
+      <p class="text-[#D1D5DB]  text-[16px]  leading-[22.8px] md:text-[18px]">CreativeOps helps creative teams manage
+        projects, share assets, and track progress — all in
+        one place.</p>
+      <div class="flex flex-col py-3.25 gap-3 md:flex-row">
+        <button class="bg-(--teal) text-[16px] leading-5 font-bold text-(--dark) py-3.5 rounded-lg md:px-5">Get Started
+          Free</button>
+        <button
+          class="text-white rounded-lg border border-[#4B5563] text-[16px] leading-5 font-bold py-3.5 flex items-center justify-center gap-2 md:px-5"><span><img
+              src="./images/triangle.svg" alt=""></span>Watch
+          Demo</button>
+      </div>
+      <div class="flex flex-col gap-2 text-[#D1D5DB]">
+        <p class="flex flex-row items-center gap-[10px]">
+          <span><img src="./images/check.svg" alt=""></span>
+          <span class="text-[#D1D5DB] text-[14px] leading-[16px]">No credit card required</span>
+        </p>
+        <p class="flex flex-row items-center gap-[10px]">
+          <span><img src="./images/check.svg" alt=""></span>
+          <span class="text-[#D1D5DB] text-[14px] leading-[16px]">Setup in minutes</span>
+        </p>
+        <p class="flex flex-row items-center gap-[10px]">
+          <span><img src="./images/check.svg" alt=""></span>
+          <span class="text-[#D1D5DB] text-[14px] leading-[16px]">Works on all devices</span>
+        </p>
+      </div>
     </div>
-    <h1 class="text-white text-[32px] leading-[37.5px] font-extrabold">Your creative work, <span
-        class="text-(--teal)">better organized.</span></h1>
-    <p class="text-[#D1D5DB]  text-[16px] leading-[22.8px]">CreativeOps helps creative teams manage
-      projects, share assets, and track progress — all in
-      one place.</p>
-    <div class="flex flex-col py-[13px] gap-3">
-      <button class="bg-(--teal) text-[16px] leading-[20px] font-bold text-(--dark) py-[14px] rounded-[8px]">Get Started
-        Free</button>
-      <button
-        class="text-white rounded-lg border border-[#4B5563] text-[16px] leading-[20px] font-bold py-[14px] flex items-center justify-center gap-2"><span><img
-            src="./images/triangle.svg" alt=""></span>Watch
-        Demo</button>
-    </div>
-    <div class="flex flex-col gap-2 text-[#D1D5DB]">
-      <p class="flex flex-row items-center gap-[10px]">
-        <span><img src="./images/check.svg" alt=""></span>
-        <span class="text-[#D1D5DB] text-[14px] leading-[16px]">No credit card required</span>
-      </p>
-      <p class="flex flex-row items-center gap-[10px]">
-        <span><img src="./images/check.svg" alt=""></span>
-        <span class="text-[#D1D5DB] text-[14px] leading-[16px]">Setup in minutes</span>
-      </p>
-      <p class="flex flex-row items-center gap-[10px]">
-        <span><img src="./images/check.svg" alt=""></span>
-        <span class="text-[#D1D5DB] text-[14px] leading-[16px]">Works on all devices</span>
-      </p>
-    </div>
-    <div><img class="w-full" src="./images/data.svg" alt=""></div>
+
+    <div class="flex-1   flex items-center justify-center"><img class="w-[90%]" src="./images/Mockup.png" alt=""></div>
+
+
+
+
+
   </main>
   <section class="py-12 bg-[#F7FBFA] px-5">
     <div>
-      <h2 class="text-[#0E9690] font-bold text-[14px] leading-[16px]">WHY CREATIVEOPS</h2>
-      <h1 class="font-extrabold text-[26px] leading-8 text-[#0C1C28] mt-1">Everything you need, in one
+      <h2 class="text-[#0E9690] font-bold text-[14px] leading-4 text-center">WHY CREATIVEOPS</h2>
+      <h1 class="font-extrabold text-[26px] leading-8 text-[#0C1C28] mt-1 text-center">Everything you need, in one
         place</h1>
     </div>
-    <div class="flex flex-col gap-[14px] mt-[28px]">
+    <div class="grid gap-3.5 mt-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <div class="p-4 flex gap-4 border border-[#E2ECE9] rounded-xl bg-white">
-        <div class="h-[42px] w-[42px] rounded-lg bg-[#E7FAF8] flex justify-center items-center">
+        <div class="h-10.5 w-10.5 rounded-lg bg-[#E7FAF8] flex justify-center items-center">
           <img class="w-full" src="./images/folder.svg" alt="">
         </div>
         <div>
-          <h2 class="text-[#0C1C28] font-bold text-[16px] leading-[20px]">Project Management</h2>
+          <h2 class="text-[#0C1C28] font-bold text-[16px] leading-5">Project Management</h2>
           <p class="mt-1 text-[14px] leading-[19.5px] text-[#6B7280] text-regular">Organize tasks, set deadlines and
             keep
             your team aligned.</p>
@@ -120,10 +230,11 @@
   </section>
   <section class="px-5 py-10 bg-white">
     <div>
-      <h2 class="text-[#0E9690] font-bold text-[14px] leading-[16px]">HOW IT WORKS</h2>
-      <h1 class="font-extrabold text-[26px] leading-8 text-[#0C1C28] mt-1">Get started in 3 simple steps</h1>
+      <h2 class="text-[#0E9690] font-bold text-[14px] leading-[16px] text-center">HOW IT WORKS</h2>
+      <h1 class="font-extrabold text-[26px] leading-8 text-[#0C1C28] mt-1 text-center">Get started in 3 simple steps
+      </h1>
     </div>
-    <div class="flex flex-col gap-6 mt-6 ">
+    <div class="flex flex-col gap-6 mt-6 md:flex-row justify-between">
       <div class="flex gap-[14px]">
         <div class="flex gap-[14px]">
           <div class="font-extrabold text-[16px] size-8 rounded-full bg-(--teal) flex items-center justify-center">1
@@ -161,14 +272,30 @@
     </div>
   </section>
   <section class="py-11 px-5 bg-[#F7FBFA] border-y-2 border-y-[#F7FBFA]">
-    <div>
-      <h2 class="text-[#0E9690] font-bold text-sm">WHAT OUR USERS SAY</h2>
-      <h1 class="font-extrabold text-[26px] leading-9 mt-1">Trusted by creative teams worldwide</h1>
-      <div>
-        <div class="mt-4 px-5 py-6 border border-[#E2ECE9] rounded-[16px] bg-white">
+    <div class="">
+      <h2 class="text-[#0E9690] font-bold text-sm text-center">WHAT OUR USERS SAY</h2>
+      <h1 class="font-extrabold text-[26px] leading-9 mt-1 text-center">Trusted by creative teams worldwide</h1>
+      <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-4 px-5 py-6 border border-[#E2ECE9] rounded-[16px] bg-white ">
           <div class="flex gap-4 ">
             <div
-              class="w-15 h-12 rounded-full border-3  border-[#12D9D0] flex justify-center items-center bg-[#E5E7EB] font-bold text-sm text-[#4B5563]">
+              class="h-[40px] w-[40px] rounded-full border-3  border-[#12D9D0] flex justify-center items-center bg-[#E5E7EB] font-bold text-sm text-[#4B5563]">
+              SK</div>
+            <div class="flex w-full flex-col justify-center">
+              <div class="text-sm font-bold text-[#0C1C28]">Sarah Khan</div>
+              <div class="text-[13px] text-[#9CA3AF]">Marketing Lead, PixelForge</div>
+            </div>
+          </div>
+          <p class="italic text-sm text-regular leading-[19.5px] text-[#4B5563] mt-4 leading-5">"CreativeOps has
+            completely
+            changed how our
+            team works. Everything is organized and easy to
+            find."</p>
+        </div>
+        <div class="mt-4 px-5 py-6 border border-[#E2ECE9] rounded-[16px] bg-white max-w-fit">
+          <div class="flex gap-4 ">
+            <div
+              class="h-[40px] w-[40px] rounded-full border-3  border-[#12D9D0] flex justify-center items-center bg-[#E5E7EB] font-bold text-sm text-[#4B5563]">
               SK</div>
             <div class="flex w-full flex-col justify-center">
               <div class="text-sm font-bold text-[#0C1C28]">Sarah Khan</div>
@@ -186,13 +313,115 @@
   </section>
   <section class="py-10 border border-[#EAEFEF] px-5">
     <div>
-      <div class="text-sm text-[#0E9690] font-bold leading-4">PRICING</div>
-      <h1 class="font-extrabold text-[26px] text-[#0C1C28]">Simple, transparent pricing</h1>
-      <div class="card mt-6 rounded-[12px] border border-[#E2ECE9] bg-[#FDFEFE] p-5 flex flex-col gap-2">
-        <p class="font-bold text-sm leading-5 text[#0C1C28]">Starter</p>
+      <div class="text-sm text-[#0E9690] font-bold leading-4 text-center">PRICING</div>
+      <h1 class="font-extrabold text-[26px] text-[#0C1C28] text-center">Simple, transparent pricing</h1>
+      <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div class="card mt-6 rounded-xl border border-[#E2ECE9] bg-[#FDFEFE] p-5 flex flex-col gap-3">
+          <p class="font-bold text-sm leading-5 text[#0C1C28]">Starter</p>
+          <div><span class="text-[26px] font-extrabold leading-8 text-[#0C1C28]">$0</span> <span
+              class="text-[#6B7280] text-sm leading-4">/month</span></div>
+          <p class="text-[#6B7280] text-sm leading-4">Perfect for small teams getting started.</p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Up to 5 team members</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Up to 5 team members</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Basic features</span></p>
+          <button class="border border-[#D1D5DB] rounded-lg py-2 text-center text-base text-[#0C1C28] font-bold">Get
+            Started</button>
+        </div>
+        <div class="card mt-6 rounded-xl border-2 border-[#12D9D0] bg-[#FDFEFE] p-5 flex flex-col gap-3 relative">
+          <span
+            class="font-bold text-sm text-[#06131D] py-1 px-3 bg-[#12D9D0] w-fit rounded-full absolute right-[20px] top-[-14px]">MOST
+            POPULAR</span>
+          <p class="font-bold text-sm leading-5 text[#0C1C28]">Pro</p>
+          <div><span class="text-[26px] font-extrabold leading-8 text-[#0C1C28]">$19</span> <span
+              class="text-[#6B7280] text-sm leading-4">/month</span></div>
+          <p class="text-[#6B7280] text-sm leading-4">For growing teams and agencies.</p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Up to 20 team members</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">100 GB storage</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Advanced features</span></p>
+          <button class="bg-[#06131D] rounded-lg py-[10px] text-center text-base text-[#ffffff] font-bold">Get
+            Started</button>
+        </div>
+        <div class="card mt-6 rounded-xl border border-[#E2ECE9] bg-[#FDFEFE] p-5 flex flex-col gap-3">
+          <p class="font-bold text-sm leading-5 text[#0C1C28]">Enterprise</p>
+          <div><span class="text-[26px] font-extrabold leading-8 text-[#0C1C28]">$49</span> <span
+              class="text-[#6B7280] text-sm leading-4">/month</span></div>
+          <p class="text-[#6B7280] text-sm leading-4">For large teams with custom needs.</p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Unlimited members</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">1 TB storage</span></p>
+          <p><span class="mr-2"><img class="inline" src="./images/new_check.svg" alt=""></span><span
+              class="text-[#6B7280] text-sm leading-4">Priority support</span></p>
+          <button class="border border-[#D1D5DB] rounded-lg py-2 text-center text-base text-[#0C1C28] font-bold">Contact
+            Sales</button>
+        </div>
       </div>
     </div>
   </section>
-  </body>
+  <footer class="py-8 flex flex-col gap-6 bg-[#06131D]  px-5">
+    <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+      <div>
+        <div class="flex items-center gap-2 h-full ">
+          <div>
+            <img src="./images/logo.svg" alt="">
+          </div>
+          <span class="text-white font-bold text-[20px]">CreativeOps</span>
+        </div>
+        <p class="text-[#9CA3AF] text-sm leading-4 mt-2">Better tools. Greater creativity.</p>
+
+      </div>
+      <div class="flex gap-4">
+        <div class="w-5 h-5">
+          <img class="w-full" src="./images/Twitter.svg" alt="">
+
+        </div>
+        <div class="w-5 h-5">
+          <img class="w-full" src="./images/GitHub.svg" alt="">
+
+        </div>
+        <div class="w-5 h-5">
+          <img class="w-full" src="./images/LinkedIn.svg" alt="">
+
+        </div>
+        <div class="w-5 h-5">
+          <img class="w-full" src="./images/Instagram.svg" alt="">
+
+        </div>
+      </div>
+
+
+      <div class="flex gap-4 text-[#9CA3AF] text-sm leading-4">
+        <span>Home</span><span>Features</span><span>Pricing</span><span>About</span>
+      </div>
+    </div>
+    <div class="border-t border-[#1F2937] py-5 flex flex-col md:flex-row gap-3 md:justify-between">
+      <div class="flex gap-4 text-[#9CA3AF] text-sm leading-4">
+        <span>Privacy</span><span>Terms</span><span>Contact</span>
+      </div>
+      <div class="text-[#9CA3AF] text-sm leading-4 ">© 2025 CreativeOps. All rights reserved.
+      </div>
+    </div>
+
+  </footer>
+</body>
+
+<script src="./minjs"></script>
+<script>
+  $("#menu").on("click", function () {
+    $("#sidebar").addClass("right-0");
+    $("#sidebar").removeClass("-right-[100%]");
+  })
+  $("#close").on("click", function () {
+    $("#sidebar").removeClass("right-0");
+    $("#sidebar").addClass("-right-[100%]");
+    // console.log(this)
+  })
+</script>
 
 </html>
